@@ -14,21 +14,54 @@ const Contact = () => {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        message: '',
+    setSubmitting(true)
+    setError('')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'da71b82b-eb9a-48d6-8b2d-83813ed7f40a',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          subject: 'New Contact Form Submission - Cloudy Day Development',
+        }),
       })
-    }, 3000)
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: '',
+        })
+        setTimeout(() => {
+          setSubmitted(false)
+        }, 5000)
+      } else {
+        setError('Something went wrong. Please try again or contact us directly.')
+      }
+    } catch (err) {
+      setError('Failed to send message. Please check your connection and try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,7 +128,16 @@ const Contact = () => {
                     <FaCheckCircle className="text-2xl" />
                     <div>
                       <p className="font-bold">Thank you!</p>
-                      <p className="text-sm">We'll get back to you soon.</p>
+                      <p className="text-sm">Your message has been sent successfully. We'll get back to you soon.</p>
+                    </div>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700 animate-slide-down">
+                    <div>
+                      <p className="font-bold">Error</p>
+                      <p className="text-sm">{error}</p>
                     </div>
                   </div>
                 )}
@@ -185,11 +227,24 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="group w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 transform flex items-center justify-center gap-2"
+                    disabled={submitting}
+                    className="group relative w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 transform flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-xl"
                   >
-                    <FaPaperPlane className="text-xl transform group-hover:translate-x-1 transition-transform duration-300" />
-                    <span>Send Message</span>
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-0 animate-pulse"></div>
+                    {submitting ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaPaperPlane className="text-xl transform group-hover:translate-x-1 transition-transform duration-300" />
+                        <span>Send Message</span>
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-0 animate-pulse"></div>
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
