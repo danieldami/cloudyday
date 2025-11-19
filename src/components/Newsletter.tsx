@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaCloud, FaEnvelope, FaCheckCircle, FaRocket } from 'react-icons/fa'
+import { FaEnvelope, FaCheckCircle, FaRocket } from 'react-icons/fa'
 
 const Newsletter = () => {
   const [email, setEmail] = useState('')

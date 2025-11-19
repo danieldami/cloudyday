@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaCloud, FaCode, FaRocket, FaUsers, FaHeart, FaAward } from 'react-icons/fa'
+import { FaCloud, FaCode, FaRocket, FaUsers, FaAward } from 'react-icons/fa'
 
 const AboutUs = () => {
   const values = [
