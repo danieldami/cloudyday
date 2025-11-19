@@ -131,7 +131,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300 bg-white/80 backdrop-blur-sm"
-                      placeholder="john@example.com"
+                      placeholder="your@email.com"
                     />
                   </div>
 
@@ -221,8 +221,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">Email</h3>
-                        <a href="mailto:info@cloudyday.dev" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
-                          info@cloudyday.dev
+                        <a href="mailto:info@cloudydaydevelopment.com" className="text-gray-600 hover:text-blue-600 transition-colors duration-300">
+                          info@cloudydaydevelopment.com
                         </a>
                       </div>
                     </div>

@@ -129,11 +129,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@cloudyday.dev" className="hover:text-white transition-colors duration-300 flex items-center gap-3 group">
+                <a href="mailto:info@cloudydaydevelopment.com" className="hover:text-white transition-colors duration-300 flex items-center gap-3 group">
                   <div className="w-10 h-10 rounded-lg bg-gray-800/50 flex items-center justify-center group-hover:bg-purple-600/20 transition-colors duration-300">
                     <FaEnvelope className="text-purple-400 text-sm" />
                   </div>
-                  <span>info@cloudyday.dev</span>
+                  <span>info@cloudydaydevelopment.com</span>
                 </a>
               </li>
               <li className="pt-2">
