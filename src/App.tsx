@@ -11,6 +11,7 @@ import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
 import SmallBusiness from './pages/SmallBusiness'
 import Contact from './pages/Contact'
+import ConstructionInterior from './pages/ConstructionInterior';
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,6 +38,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/small-business" element={<SmallBusiness />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/construction-interior" element={<ConstructionInterior />} />
       </Routes>
     </Router>
   )
