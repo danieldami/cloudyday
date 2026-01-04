@@ -88,11 +88,25 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-0 animate-pulse"></div>
             </Link>
             <Link
-              to="/construction-interior"
-              className="bg-white/95 backdrop-blur-md text-blue-700 px-12 py-6 rounded-2xl text-lg font-bold border-2 border-blue-400/60 hover:bg-white hover:border-blue-600 hover:text-blue-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 transform hover:-translate-y-1"
-            >
-              For Construction Profesionals
-            </Link>
+  to="/construction-interior"
+  className="
+    bg-white/95 backdrop-blur-md text-blue-700 
+    px-6 py-4 text-base
+    sm:px-8 sm:py-4 sm:text-lg
+    md:px-12 md:py-5 md:text-xl
+    lg:px-16 lg:py-6 lg:text-2xl
+    rounded-2xl font-bold
+    border-2 border-blue-400/60
+    hover:bg-white hover:border-blue-600 hover:text-blue-800
+    transition-all duration-300
+    shadow-lg hover:shadow-2xl
+    hover:scale-105 transform hover:-translate-y-1
+    w-full sm:w-auto text-center
+  "
+>
+  For Construction Professionals
+</Link>
+
           </div>
 
           {/* Services Highlights - Dynamic Cards */}
