@@ -216,7 +216,7 @@ export default function ConstructionInterior() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Our Work</h2>
           <p className="text-center text-gray-600 mb-12">
-            Websites Built for Nigerian Construction & Interior Professionals
+            Websites Built for Construction & Interior Professionals
           </p>
           <p className="text-center text-sm text-gray-500 mb-8 italic">
             Sample references — your custom site will be unique to your brand
@@ -225,14 +225,14 @@ export default function ConstructionInterior() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'ARCHITECTURE STUDIO PORTFOLIO',
+                title: 'ARCDOME ARCHITECTURE STUDIO ',
                 desc: 'Modern, clean portfolio showcasing 20+ projects',
                 services: 'Custom Design, Gallery Integration',
                 timeline: '8 days',
               },
               {
-                title: 'INTERIOR DESIGNER SHOWCASE',
-                desc: 'Visual-first website with Instagram integration',
+                title: 'CONAH, AN INTERIOR DESIGNER',
+                desc: 'Visual-first website',
                 services: 'Custom Design, Social Integration',
                 timeline: '9 days',
               },
@@ -284,7 +284,7 @@ export default function ConstructionInterior() {
               WhatsApp: +234 912 588 2627
             </a>
             
-              <a href="mailto:daniel@cloudydaydevelopment.com"
+              <a href="mailto:danieluwajeh@cloudydaydevelopment.com"
               className="px-8 py-4 bg-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
             >
               Email Us
